@@ -1,0 +1,46 @@
+{
+  "log_level": "DEBUG",
+  "play_wav_cmdline": "cmdmp3 %1",
+  "play_mp3_cmdline": "cmdmp3 %1",
+  "play_ogg_cmdline": "cmdmp3 %1",
+  // "play_wav_cmdline": "C:\\PROGRA~1\\VideoLan\\vlc\\vlc.exe -I dummy --dummy-quiet --no-one-instance %1",
+  // "play_mp3_cmdline": "C:\\PROGRA~1\\VideoLan\\vlc\\vlc.exe -I dummy --dummy-quiet --no-one-instance %1",
+  // "play_ogg_cmdline": "C:\\PROGRA~1\\VideoLan\\vlc\\vlc.exe -I dummy --dummy-quiet --no-one-instance %1",
+  "stt": {
+    "module": "ovos-stt-plugin-chromium"
+  },
+  "sounds": {
+    "start_listening": "snd\\start_listening.wav",
+    "end_listening": "snd\\end_listening.wav",
+    "acknowledge": "snd\\acknowledge.mp3",
+    "error": "snd\\error.mp3"
+  },
+  "listener": {
+    "wake_word": "hey_mycroft",
+    "record_wake_words": false,
+    "silence_end": 1.25,
+    "recording_timeout": 10,
+    "confirm_listening": true,
+    "instant_listen": true,
+    "microphone": {
+      "module": "ovos-microphone-plugin-pyaudio"
+    },
+    "VAD": {
+      "module": "ovos-vad-plugin-silero",
+      "ovos-vad-plugin-silero": {
+        "threshold": 0.75
+      }
+    }
+  },
+  "hotwords": {
+    "wake_up": { "active": false },
+    "wake_up_vosk": { "active": false },
+    "hey_mycroft": {
+      "module": "ovos-ww-plugin-openwakeword",
+      "active": true,
+      "listen": true,
+      "sound": "snd\\start_listening.wav",
+      "threshold": 0.5
+    }
+  }
+}

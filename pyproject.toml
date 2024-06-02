@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "ovos-windows"
+version = "0.1.0"
+description = "OpenVoiceOS (OVOS) Running on Pure Windows"
+authors = ["Mike Gray <mike@graywind.org>"]
+license = "Apache-2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9,<3.12"
+ovos-microphone-plugin-pyaudio = "^0.0.0a2"
+ovos-vad-plugin-silero = {version = "^0.0.1", allow-prereleases = true}
+ovos-messagebus = {version = "^0.0.5a1", allow-prereleases = true}
+ovos-utils = {path = "../ovos-utils"}
+ovos-dinkum-listener = {version = "^0.0.3a39", allow-prereleases = true}
+ovos-stt-plugin-server = {version = "^0.0.4a7", allow-prereleases = true}
+ovos-ww-plugin-openwakeword = "^0.4.1"
+ovos-core = {extras = ["skills-essential"], version = "^0.0.8a105", allow-prereleases = true}
+ovos-audio = {version = "^0.0.2a48", allow-prereleases = true}
+ovos-tts-plugin-server = {version = "^0.0.2a13", allow-prereleases = true}
+ovos-phal = {version = "^0.0.5a15", allow-prereleases = true}
+ovos-stt-plugin-chromium = {git = "https://github.com/OpenVoiceOS/ovos-stt-plugin-chromium"}
+ovos-phal-plugin-ipgeo = {version = "^0.0.3a2", allow-prereleases = true}
+ovos-phal-plugin-connectivity-events = {version = "^0.0.3", allow-prereleases = true}
+
+
+[tool.poetry.group.skills.dependencies]
+neon-homeassistant-skill = "^0.0.18"
+ovos-skill-icanhazdadjokes = {git = "https://github.com/OpenVoiceOS/skill-ovos-icanhazdadjokes"}
+ovos-phal-plugin-homeassistant = {version = "^0.0.4a8", allow-prereleases = true}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
